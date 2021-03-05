@@ -1,5 +1,5 @@
 import {EventEmitter} from './EventEmitter';
-import dispatcher from '../dispatcher';
+// import dispatcher from '../dispatcher';
 
 export type StoreEvent<T, D> = {
   type: T;
