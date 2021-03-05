@@ -3,7 +3,7 @@ import {EventEmitter} from '../EventEmitter';
 export type PerformanceHandler = (shift: number) => void;
 
 // for 60 fps
-const FPS = 1 / 60;
+const FPS = 1 / 60 * 1000;
 
 class PerformanceClass extends EventEmitter<number, PerformanceHandler>{
   private _previousPerformanceTime: number;
