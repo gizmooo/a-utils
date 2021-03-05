@@ -1,7 +1,7 @@
 {
-  "name": "utils",
+  "name": "a-utils",
   "version": "1.0.0",
-  "description": "Utilities",
+  "description": "Utilities for websites",
   "author": "Anton Ustinov",
   "license": "ISC",
   "main": "./src/index.ts",
