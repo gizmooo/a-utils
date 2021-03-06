@@ -9,6 +9,11 @@
     "type": "git",
     "url": "git+https://github.com/gizmooo/utils.git"
   },
+  "files": [
+    "src/",
+    "package.json",
+    "README.md"
+  ],
   "keywords": ["utils", "typescript"],
   "bugs": {
     "url": "https://github.com/gizmooo/utils/issues",
@@ -16,7 +21,7 @@
   },
   "homepage": "https://github.com/gizmooo/utils",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc -d --declarationDir js --declarationMap --emitDeclarationOnly"
   },
   "devDependencies": {
     "typescript": "^4.2.3"

@@ -13,18 +13,18 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
+//    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
     "noEmit": false,
     "target": "es2017",
-    "sourceMap": true,
-    "baseUrl": "./",
+//    "sourceMap": true,
+//    "baseUrl": "./",
   },
-  "exclude": ["node_modules"],
-  "files": [
-    "./src/index.ts"
-  ],
-  "include": ["./src"]
+  "exclude": ["node_modules/**/*"],
+//  "files": [
+//    "./src/index.ts"
+//  ],
+  "include": ["src/**/*"]
 }
