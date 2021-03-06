@@ -4,8 +4,8 @@
   "description": "Utilities for websites",
   "author": "Anton Ustinov",
   "license": "ISC",
-  "main": "./js/index.js",
-  "types": "./js/index.d.ts",
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gizmooo/utils.git"
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/gizmooo/utils",
   "scripts": {
-    "build": "tsc -d --declarationDir js --declarationMap --emitDeclarationOnly"
+    "build": "tsc"
   },
   "devDependencies": {
     "typescript": "^4.2.3"
