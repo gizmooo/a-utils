@@ -4,7 +4,8 @@
   "description": "Utilities for websites",
   "author": "Anton Ustinov",
   "license": "ISC",
-  "main": "./src/index.ts",
+  "main": "./js/index.js",
+  "types": "./js/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gizmooo/utils.git"
