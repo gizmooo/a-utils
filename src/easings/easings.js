@@ -1,4 +1,7 @@
-export const ease = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ease = void 0;
+exports.ease = {
     // no easing, no acceleration
     linear: (t) => t,
     // accelerating from zero velocity

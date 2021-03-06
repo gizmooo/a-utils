@@ -1,7 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.http = void 0;
 const jsonFetch = (...args) => {
     return fetch.apply(window, args);
 };
-export function http(options) {
+function http(options) {
     // const controller = new AbortController();
     // const signal = controller.signal;
     const settings = {
@@ -46,3 +49,4 @@ export function http(options) {
     }
     // return controller;
 }
+exports.http = http;

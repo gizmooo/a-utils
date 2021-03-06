@@ -1,7 +1,10 @@
-import { EventEmitter } from '../EventEmitter';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Performance = void 0;
+const EventEmitter_1 = require("../EventEmitter");
 // for 60 fps
 const FPS = 1 / 60 * 1000;
-class PerformanceClass extends EventEmitter {
+class PerformanceClass extends EventEmitter_1.EventEmitter {
     constructor() {
         super();
         this._previousPerformanceTime = 0;
@@ -16,4 +19,4 @@ class PerformanceClass extends EventEmitter {
         this._raf = requestAnimationFrame(this.onAnimate);
     }
 }
-export const Performance = new PerformanceClass();
+exports.Performance = new PerformanceClass();

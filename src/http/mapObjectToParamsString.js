@@ -1,4 +1,7 @@
-export const mapObjectToParamsString = (params) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.mapObjectToParamsString = void 0;
+const mapObjectToParamsString = (params) => {
     if (!params)
         return '';
     let paramsString = '?';
@@ -8,3 +11,4 @@ export const mapObjectToParamsString = (params) => {
     }
     return paramsString.substring(0, paramsString.length - 1);
 };
+exports.mapObjectToParamsString = mapObjectToParamsString;

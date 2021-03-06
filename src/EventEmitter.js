@@ -1,4 +1,7 @@
-export class EventEmitter {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EventEmitter = void 0;
+class EventEmitter {
     constructor() {
         this._handlers = [];
     }
@@ -19,6 +22,7 @@ export class EventEmitter {
         return this;
     }
 }
+exports.EventEmitter = EventEmitter;
 // export type EventEmitterHandler<D> = (data: D) => void;
 //
 // const DEFAULT_EVENT_TYPE = 'change';

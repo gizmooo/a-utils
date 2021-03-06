@@ -1,5 +1,8 @@
+"use strict";
 // Output like '01.01' or '04.03.59' or '123.03.59'
-export const fancyTime = (duration, splitter = '.') => {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.fancyTime = void 0;
+const fancyTime = (duration, splitter = '.') => {
     const hours = ~~(duration / 3600);
     const minutes = ~~((duration % 3600) / 60);
     const seconds = ~~duration % 60;
@@ -11,3 +14,4 @@ export const fancyTime = (duration, splitter = '.') => {
     ret += '' + (seconds < 10 ? '0' : '') + seconds;
     return ret;
 };
+exports.fancyTime = fancyTime;

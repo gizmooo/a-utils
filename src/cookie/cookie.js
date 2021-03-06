@@ -1,8 +1,12 @@
-export const getCookie = (name) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deleteCookie = exports.setCookie = exports.getCookie = void 0;
+const getCookie = (name) => {
     let matches = document.cookie.match(new RegExp('(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'));
     return matches ? decodeURIComponent(matches[1]) : undefined;
 };
-export const setCookie = (name, value, options) => {
+exports.getCookie = getCookie;
+const setCookie = (name, value, options) => {
     options = Object.assign({ path: '/' }, options);
     let expires = options.expires;
     if (typeof expires === 'number') {
@@ -26,8 +30,10 @@ export const setCookie = (name, value, options) => {
     }
     document.cookie = updatedCookie;
 };
-export const deleteCookie = (name) => {
-    setCookie(name, '', {
+exports.setCookie = setCookie;
+const deleteCookie = (name) => {
+    exports.setCookie(name, '', {
         expires: -1
     });
 };
+exports.deleteCookie = deleteCookie;

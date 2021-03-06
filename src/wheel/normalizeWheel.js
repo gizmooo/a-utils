@@ -1,7 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.normalizeWheel = void 0;
 const PIXEL_STEP = 10;
 const LINE_HEIGHT = 40;
 const PAGE_HEIGHT = 800;
-export const normalizeWheel = (event) => {
+const normalizeWheel = (event) => {
     let sX = 0, sY = 0, pX, pY;
     if (event.detail !== undefined)
         sY = event.detail;
@@ -42,3 +45,4 @@ export const normalizeWheel = (event) => {
         pixelY: pY
     };
 };
+exports.normalizeWheel = normalizeWheel;

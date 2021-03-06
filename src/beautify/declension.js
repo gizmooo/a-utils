@@ -1,4 +1,7 @@
-export const declension = (digit, expr, onlyword = false) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.declension = void 0;
+const declension = (digit, expr, onlyword = false) => {
     digit = digit + '';
     let res = '';
     let expr_list = expr.split(' ');
@@ -20,3 +23,4 @@ export const declension = (digit, expr, onlyword = false) => {
     }
     return res;
 };
+exports.declension = declension;

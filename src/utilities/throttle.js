@@ -1,4 +1,7 @@
-export function throttle(func, wait) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.throttle = void 0;
+function throttle(func, wait) {
     let isThrottled = false, savedArgs, savedThis;
     function wrapper(...args) {
         if (isThrottled) {
@@ -18,3 +21,4 @@ export function throttle(func, wait) {
     }
     return wrapper;
 }
+exports.throttle = throttle;

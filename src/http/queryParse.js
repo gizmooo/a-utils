@@ -1,4 +1,7 @@
-export const queryParse = (str) => {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.queryParse = void 0;
+const queryParse = (str) => {
     // if (typeof str !== 'string') {
     //   return {};
     // }
@@ -31,3 +34,4 @@ export const queryParse = (str) => {
     //   return ret;
     // }, {});
 };
+exports.queryParse = queryParse;

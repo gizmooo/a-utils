@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.History = void 0;
 class HistoryClass {
     constructor() {
         if ('scrollRestoration' in history)
@@ -36,5 +39,5 @@ class HistoryClass {
         return this._title.innerText;
     }
 }
-export const History = new HistoryClass();
-export default History;
+exports.History = new HistoryClass();
+exports.default = exports.History;

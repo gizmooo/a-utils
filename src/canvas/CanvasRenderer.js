@@ -1,4 +1,7 @@
-export class CanvasRenderer {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CanvasRenderer = void 0;
+class CanvasRenderer {
     constructor() {
         this._width = 1;
         this._height = 1;
@@ -36,3 +39,4 @@ export class CanvasRenderer {
         this.context.clearRect(0, 0, this._width, this._height);
     }
 }
+exports.CanvasRenderer = CanvasRenderer;
