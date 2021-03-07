@@ -1,6 +1,6 @@
 import { EventEmitter } from '../EventEmitter';
 const HTML = document.documentElement;
-class OutLinerClass extends EventEmitter {
+export class OutLiner extends EventEmitter {
     constructor() {
         super();
         this._isSetted = false;
@@ -29,5 +29,4 @@ class OutLinerClass extends EventEmitter {
         this.dispatch(false);
     }
 }
-export const OutLiner = new OutLinerClass();
 //# sourceMappingURL=outliner.js.map

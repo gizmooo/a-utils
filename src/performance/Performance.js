@@ -1,6 +1,6 @@
 import { EventEmitter } from '../EventEmitter';
 const FPS = 1 / 60 * 1000;
-class PerformanceClass extends EventEmitter {
+export class Performance extends EventEmitter {
     constructor() {
         super();
         this._previousPerformanceTime = 0;
@@ -15,5 +15,4 @@ class PerformanceClass extends EventEmitter {
         this._raf = requestAnimationFrame(this.onAnimate);
     }
 }
-export const Performance = new PerformanceClass();
 //# sourceMappingURL=Performance.js.map

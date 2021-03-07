@@ -5,7 +5,7 @@ export type PerformanceHandler = (shift: number) => void;
 // for 60 fps
 const FPS = 1 / 60 * 1000;
 
-class PerformanceClass extends EventEmitter<number, PerformanceHandler>{
+export class Performance extends EventEmitter<number, PerformanceHandler>{
   private _previousPerformanceTime: number;
   private _raf: number;
   private readonly onAnimate: () => void;
@@ -28,5 +28,3 @@ class PerformanceClass extends EventEmitter<number, PerformanceHandler>{
     this._raf = requestAnimationFrame(this.onAnimate);
   }
 }
-
-export const Performance = new PerformanceClass();

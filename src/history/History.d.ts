@@ -5,7 +5,7 @@ export declare type HistoryOptions = {
     title: string;
     href?: string | null;
 };
-declare class HistoryClass extends EventEmitter<HistoryOptions, HistoryHandler> {
+export declare class History extends EventEmitter<HistoryOptions, HistoryHandler> {
     private _title;
     constructor();
     push(options: HistoryOptions): void;
@@ -13,5 +13,3 @@ declare class HistoryClass extends EventEmitter<HistoryOptions, HistoryHandler> 
     set title(title: string);
     get title(): string;
 }
-export declare const History: HistoryClass;
-export default History;

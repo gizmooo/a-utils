@@ -7,7 +7,7 @@ export type HistoryOptions = {
   href?: string | null;
 }
 
-class HistoryClass extends EventEmitter<HistoryOptions, HistoryHandler>{
+export class History extends EventEmitter<HistoryOptions, HistoryHandler>{
   private _title: HTMLTitleElement;
 
   constructor() {
@@ -39,6 +39,3 @@ class HistoryClass extends EventEmitter<HistoryOptions, HistoryHandler>{
     return this._title.innerText;
   }
 }
-
-export const History = new HistoryClass();
-export default History;

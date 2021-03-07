@@ -1,5 +1,5 @@
 import { EventEmitter } from '../EventEmitter';
-class HistoryClass extends EventEmitter {
+export class History extends EventEmitter {
     constructor() {
         super();
         if ('scrollRestoration' in history)
@@ -26,6 +26,4 @@ class HistoryClass extends EventEmitter {
         return this._title.innerText;
     }
 }
-export const History = new HistoryClass();
-export default History;
 //# sourceMappingURL=History.js.map

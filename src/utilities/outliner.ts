@@ -3,7 +3,7 @@ import {EventEmitter} from '../EventEmitter';
 const HTML = document.documentElement;
 
 
-class OutLinerClass extends EventEmitter<boolean> {
+export class OutLiner extends EventEmitter<boolean> {
   private _isSetted: boolean;
   private readonly _style: HTMLStyleElement;
 
@@ -39,5 +39,3 @@ class OutLinerClass extends EventEmitter<boolean> {
     this.dispatch(false);
   }
 }
-
-export const OutLiner = new OutLinerClass();
