@@ -1,14 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.prefixedCSSValue = exports.getCSS = void 0;
-// Возвращает значение CSS элемента
-function getCSS(element, property) {
+export function getCSS(element, property) {
     return window.getComputedStyle(element, null).getPropertyValue(property);
 }
-exports.getCSS = getCSS;
-// // Modernizr
 const domPrefixes = ['moz', 'o', 'ms', 'webkit'];
-function prefixedCSSValue(prop, value) {
+export function prefixedCSSValue(prop, value) {
     let result = false;
     const elem = document.createElement('div');
     const style = elem.style;
@@ -26,4 +20,4 @@ function prefixedCSSValue(prop, value) {
     }
     return result;
 }
-exports.prefixedCSSValue = prefixedCSSValue;
+//# sourceMappingURL=css.js.map

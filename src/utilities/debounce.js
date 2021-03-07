@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.debounce = void 0;
-function debounce(func, wait = 20) {
+export function debounce(func, wait = 20) {
     let h;
     let callable = (...args) => {
         clearTimeout(h);
@@ -9,4 +6,4 @@ function debounce(func, wait = 20) {
     };
     return callable;
 }
-exports.debounce = debounce;
+//# sourceMappingURL=debounce.js.map

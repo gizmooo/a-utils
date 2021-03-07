@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.mapObjectToParamsString = void 0;
-const mapObjectToParamsString = (params) => {
+export const mapObjectToParamsString = (params) => {
     if (!params)
         return '';
     let paramsString = '?';
@@ -11,4 +8,4 @@ const mapObjectToParamsString = (params) => {
     }
     return paramsString.substring(0, paramsString.length - 1);
 };
-exports.mapObjectToParamsString = mapObjectToParamsString;
+//# sourceMappingURL=mapObjectToParamsString.js.map

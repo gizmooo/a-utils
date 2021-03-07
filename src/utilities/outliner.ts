@@ -1,25 +1,43 @@
-const style: HTMLStyleElement = document.createElement('style');
-document.head.appendChild(style);
+import {EventEmitter} from '../EventEmitter';
 
-let setted: boolean = false;
+const HTML = document.documentElement;
 
 
-const _set = (): void => {
-  if (setted) return;
+class OutLinerClass extends EventEmitter<boolean> {
+  private _isSetted: boolean;
+  private readonly _style: HTMLStyleElement;
 
-  document.documentElement.classList.remove('keyboard');
-  style.innerHTML = '* {outline:none}';
-  setted = true;
+  constructor() {
+    super();
+
+    this._isSetted = false;
+    this._style = document.createElement('style');
+    document.head.appendChild(this._style);
+
+
+    document.addEventListener('mousedown', () => this._set());
+    document.addEventListener('touchstart', () => this._set());
+    document.addEventListener('keydown', (e) => this._remove(e));
+  }
+  private _set() {
+    if (this._isSetted) return;
+
+    HTML.classList.remove('keyboard');
+    this._style.innerHTML = '* {outline:none}';
+    this._isSetted = true;
+
+    this.dispatch(true);
+  }
+  private _remove(e: KeyboardEvent) {
+    if (!this._isSetted) return;
+    if (e && e.keyCode !== 9) return;
+
+    HTML.classList.add('keyboard');
+    this._style.innerHTML = '';
+    this._isSetted = false;
+
+    this.dispatch(false);
+  }
 }
-const _remove = (e: KeyboardEvent): void => {
-  if (!setted) return;
-  if (e && e.keyCode !== 9) return;
 
-  document.documentElement.classList.add('keyboard');
-  style.innerHTML = '';
-  setted = false;
-}
-
-document.addEventListener('mousedown', _set);
-document.addEventListener('touchstart', _set);
-document.addEventListener('keydown', _remove);
+export const OutLiner = new OutLinerClass();

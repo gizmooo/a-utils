@@ -1,16 +1,14 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.History = void 0;
-class HistoryClass {
+import { EventEmitter } from '../EventEmitter';
+class HistoryClass extends EventEmitter {
     constructor() {
+        super();
         if ('scrollRestoration' in history)
             history.scrollRestoration = 'manual';
         this._title = document.querySelector('title');
-        this.handlers = [];
         window.addEventListener('popstate', (event) => {
             const state = event.state;
             this.title = state.title;
-            this.handlers.forEach(handler => handler(state));
+            this.dispatch(state);
         }, false);
     }
     push(options) {
@@ -21,17 +19,6 @@ class HistoryClass {
         history.replaceState(options.state, options.title, options.href);
         this.title = options.title;
     }
-    addListener(handler) {
-        if (!this.handlers.includes(handler))
-            this.handlers.push(handler);
-        return this;
-    }
-    removeListener(handler) {
-        const index = this.handlers.indexOf(handler);
-        if (index >= 0)
-            this.handlers.splice(index, 1);
-        return this;
-    }
     set title(title) {
         this._title.innerText = title;
     }
@@ -39,5 +26,6 @@ class HistoryClass {
         return this._title.innerText;
     }
 }
-exports.History = new HistoryClass();
-exports.default = exports.History;
+export const History = new HistoryClass();
+export default History;
+//# sourceMappingURL=History.js.map

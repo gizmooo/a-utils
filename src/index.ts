@@ -9,7 +9,7 @@ export {getCSS, prefixedCSSValue} from './css/css';
 
 export {clearElements, moveElements} from './DOM/dom';
 
-export {ease} from './easings/easings';
+export {Ease} from './easings/easings';
 
 export {History, HistoryOptions, HistoryHandler} from './history/History';
 
@@ -29,6 +29,7 @@ export {even, randomSort, randomInteger} from './sort/sort';
 export {isIE, isTouch, isWebGLAvailable, isWebpSupport} from './test/test';
 
 export {addHint} from './utilities/addHint';
+export {OutLiner} from './utilities/outliner';
 export {debounce} from './utilities/debounce';
 export {throttle} from './utilities/throttle';
 export {getUUID} from './utilities/uuid';

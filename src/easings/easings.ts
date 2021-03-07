@@ -1,4 +1,4 @@
-export const ease = {
+export const Ease = {
   // no easing, no acceleration
   linear: (t: number): number => t,
   // accelerating from zero velocity

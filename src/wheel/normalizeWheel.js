@@ -1,10 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.normalizeWheel = void 0;
 const PIXEL_STEP = 10;
 const LINE_HEIGHT = 40;
 const PAGE_HEIGHT = 800;
-const normalizeWheel = (event) => {
+export const normalizeWheel = (event) => {
     let sX = 0, sY = 0, pX, pY;
     if (event.detail !== undefined)
         sY = event.detail;
@@ -45,4 +42,4 @@ const normalizeWheel = (event) => {
         pixelY: pY
     };
 };
-exports.normalizeWheel = normalizeWheel;
+//# sourceMappingURL=normalizeWheel.js.map

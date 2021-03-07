@@ -1,8 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.isWebpSupport = exports.isIE = exports.isWebGLAvailable = exports.isTouch = void 0;
-// Проверка на тач
-const isTouch = () => {
+export const isTouch = () => {
     try {
         document.createEvent('TouchEvent');
         return true;
@@ -11,9 +7,7 @@ const isTouch = () => {
         return false;
     }
 };
-exports.isTouch = isTouch;
-// Проверка поддержки WebGL
-const isWebGLAvailable = () => {
+export const isWebGLAvailable = () => {
     try {
         const canvas = document.createElement('canvas');
         return !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
@@ -22,15 +16,12 @@ const isWebGLAvailable = () => {
         return false;
     }
 };
-exports.isWebGLAvailable = isWebGLAvailable;
-const isIE = () => {
+export const isIE = () => {
     const match = navigator.userAgent.match(/(?:MSIE | Trident\/.*; rv:)(\d+)/);
     return match ? parseInt(match[1]) : false;
 };
-exports.isIE = isIE;
-// Проверка поддержки изображений WEBP
 let isUsedWebp = false;
-const isWebpSupport = () => {
+export const isWebpSupport = () => {
     const elem = document.createElement('canvas');
     if (!!(elem.getContext && elem.getContext('2d'))) {
         const isSupport = elem.toDataURL('image/webp').includes('data:image/webp');
@@ -44,4 +35,4 @@ const isWebpSupport = () => {
         return false;
     }
 };
-exports.isWebpSupport = isWebpSupport;
+//# sourceMappingURL=test.js.map

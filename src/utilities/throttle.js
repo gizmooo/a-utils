@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.throttle = void 0;
-function throttle(func, wait) {
+export function throttle(func, wait) {
     let isThrottled = false, savedArgs, savedThis;
     function wrapper(...args) {
         if (isThrottled) {
@@ -21,4 +18,4 @@ function throttle(func, wait) {
     }
     return wrapper;
 }
-exports.throttle = throttle;
+//# sourceMappingURL=throttle.js.map

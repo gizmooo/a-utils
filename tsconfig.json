@@ -6,25 +6,22 @@
       "es7",
       "ES2017.object"
     ],
-    "allowJs": true,
+    "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": false,
     "noEmit": false,
     "target": "es2017",
     "declaration": true,
-//    "sourceMap": true,
-//    "baseUrl": "./",
+    "removeComments": true,
+    "sourceMap": true
   },
   "exclude": ["./node_modules/**/*"],
-//  "files": [
-//    "./src/index.ts"
-//  ],
   "include": ["./src/**/*"]
 }

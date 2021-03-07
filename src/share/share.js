@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Share = void 0;
-exports.Share = {
+export const Share = {
     vk: (purl, pTitle, pImg, text) => {
         let url = 'https://vkontakte.ru/share.php?';
         url += 'url=' + encodeURIComponent(purl);
@@ -12,7 +9,7 @@ exports.Share = {
         if (pImg)
             url += '&image=' + encodeURIComponent(pImg);
         url += '&noparse=true';
-        exports.Share.popup(url);
+        Share.popup(url);
     },
     ok: (purl, pTitle, pImg, text) => {
         let url = 'https://connect.ok.ru/offer?';
@@ -21,12 +18,12 @@ exports.Share = {
             url += '&title=' + encodeURIComponent(pTitle);
         if (pImg)
             url += '&imageUrl=' + encodeURIComponent(pImg);
-        exports.Share.popup(url);
+        Share.popup(url);
     },
     fb: (purl, pTitle, pImg, text) => {
         let url = 'https://www.facebook.com/sharer.php?s=100';
         url += '&u=' + encodeURIComponent(purl);
-        exports.Share.popup(url);
+        Share.popup(url);
     },
     tw: (purl, pTitle, pImg, text) => {
         let url = 'https://twitter.com/share?';
@@ -34,7 +31,7 @@ exports.Share = {
         url += '&counturl=' + encodeURIComponent(purl);
         if (pTitle)
             url += '&text=' + encodeURIComponent(pTitle);
-        exports.Share.popup(url);
+        Share.popup(url);
     },
     mr: (purl, pTitle, pImg, text) => {
         let url = 'https://connect.mail.ru/share?';
@@ -45,19 +42,20 @@ exports.Share = {
             url += '&description=' + encodeURIComponent(text);
         if (pImg)
             url += '&imageurl=' + encodeURIComponent(pImg);
-        exports.Share.popup(url);
+        Share.popup(url);
     },
     wa: (purl, pTitle, pImg, text) => {
         let url = `https://api.whatsapp.com/send?text=${encodeURIComponent(purl)}`;
-        exports.Share.popup(url);
+        Share.popup(url);
     },
     tg: (purl, pTitle, pImg, text) => {
         let url = `https://t.me/share/url?url=${encodeURIComponent(purl)}`;
         if (pImg)
             url += `&text=${encodeURIComponent(pImg)}`;
-        exports.Share.popup(url);
+        Share.popup(url);
     },
     popup: (url) => {
         window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
     }
 };
+//# sourceMappingURL=share.js.map

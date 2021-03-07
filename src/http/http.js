@@ -1,21 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.http = void 0;
 const jsonFetch = (...args) => {
     return fetch.apply(window, args);
 };
-function http(options) {
-    // const controller = new AbortController();
-    // const signal = controller.signal;
+export function http(options) {
     const settings = {
         method: 'GET',
         body: null,
         mode: 'cors',
         cache: 'no-cache',
         headers: new Headers(Object.assign({}, options.headers))
-        // redirect: 'follow',
-        // referrer: 'no-referrer',
-        // signal
     };
     if (options.data) {
         settings.method = 'POST';
@@ -47,6 +39,5 @@ function http(options) {
             return response.json();
         });
     }
-    // return controller;
 }
-exports.http = http;
+//# sourceMappingURL=http.js.map

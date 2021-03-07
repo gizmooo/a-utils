@@ -1,4 +1,4 @@
-export declare const ease: {
+export declare const Ease: {
     linear: (t: number) => number;
     easeInQuad: (t: number) => number;
     easeOutQuad: (t: number) => number;

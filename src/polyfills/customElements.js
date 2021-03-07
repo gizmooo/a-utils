@@ -1,3 +1,2 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-require("@ungap/custom-elements");
+import '@ungap/custom-elements';
+//# sourceMappingURL=customElements.js.map
