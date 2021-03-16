@@ -1,26 +1,29 @@
 {
   "name": "a-utils",
-  "version": "1.0.3",
-  "description": "Utilities for websites",
+  "version": "1.0.4",
+  "description": "Utilities for rc websites",
   "author": "Anton Ustinov",
   "license": "ISC",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gizmooo/utils.git"
+    "url": "git+https://github.com/gizmooo/a-utils.git"
   },
   "files": [
     "src/",
     "package.json",
     "README.md"
   ],
-  "keywords": ["utils", "typescript"],
+  "keywords": [
+    "utils",
+    "typescript"
+  ],
   "bugs": {
-    "url": "https://github.com/gizmooo/utils/issues",
+    "url": "https://github.com/gizmooo/a-utils/issues",
     "email": "ustin_moto@mail.ru"
   },
-  "homepage": "https://github.com/gizmooo/utils",
+  "homepage": "https://github.com/gizmooo/a-utils",
   "scripts": {
     "build": "tsc"
   },
