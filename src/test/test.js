@@ -20,18 +20,25 @@ export const isIE = () => {
     const match = navigator.userAgent.match(/(?:MSIE | Trident\/.*; rv:)(\d+)/);
     return match ? parseInt(match[1]) : false;
 };
-let isUsedWebp = false;
+export const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+export const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+let isWebpSupportCheck = false;
+let isWebpSupports = false;
 export const isWebpSupport = () => {
+    if (isWebpSupportCheck)
+        return isWebpSupports;
+    isWebpSupportCheck = true;
     const elem = document.createElement('canvas');
     if (!!(elem.getContext && elem.getContext('2d'))) {
         const isSupport = elem.toDataURL('image/webp').includes('data:image/webp');
-        if (!isUsedWebp && !isSupport)
+        if (!isSupport)
             document.documentElement.classList.add('no-webp');
+        isWebpSupports = isSupport;
         return isSupport;
     }
     else {
-        if (!isUsedWebp)
-            document.documentElement.classList.add('no-webp');
+        isWebpSupports = false;
+        document.documentElement.classList.add('no-webp');
         return false;
     }
 };

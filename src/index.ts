@@ -1,40 +1,40 @@
-export {declension} from './beautify/declension';
-export {fancyTime} from './beautify/time';
+export * from './beautify/declension';
+export * from './beautify/time';
 
-export {CanvasRenderer} from './canvas/CanvasRenderer';
+export * from './canvas/CanvasRenderer';
 
-export {getCookie, setCookie, deleteCookie, CookieOptions} from './cookie/cookie';
+export * from './cookie/cookie';
 
-export {getCSS, prefixedCSSValue} from './css/css';
+export * from './css/css';
 
-export {clearElements, moveElements} from './DOM/dom';
+export * from './DOM/dom';
 
-export {Ease} from './easings/easings';
+export * from './easings/easings';
 
-export {History, HistoryOptions, HistoryHandler} from './history/History';
+export * from './history/History';
 
-export {http} from './http/http';
-export {mapObjectToParamsString} from './http/mapObjectToParamsString';
-export {queryParse} from './http/queryParse';
+export * from './http/http';
+export * from './http/mapObjectToParamsString';
+export * from './http/queryParse';
 
-export {formatDate} from './number/formatDate';
-export {lerp, lerpLimit, hexToRgb, base64ToArrayBuffer} from './number/number';
+export * from './number/formatDate';
+export * from './number/number';
 
-export {Performance} from './performance/Performance';
+export * from './performance/Performance';
 
-export {Share} from './share/share';
+export * from './share/share';
 
-export {even, randomSort, randomInteger} from './sort/sort';
+export * from './sort/sort';
 
-export {isIE, isTouch, isWebGLAvailable, isWebpSupport} from './test/test';
+export * from './test/test';
 
-export {addHint} from './utilities/addHint';
-export {OutLiner} from './utilities/outliner';
-export {debounce} from './utilities/debounce';
-export {throttle} from './utilities/throttle';
-export {getUUID} from './utilities/uuid';
+export * from './utilities/addHint';
+export * from './utilities/outliner';
+export * from './utilities/debounce';
+export * from './utilities/throttle';
+export * from './utilities/uuid';
 
-export {EventEmitterHandler, EventEmitter} from './EventEmitter';
-export {StoreEvent, Store} from './Store';
+export * from './EventEmitter';
+export * from './Store';
 
-export {normalizeWheel} from './wheel/normalizeWheel';
+export * from './wheel/normalizeWheel';

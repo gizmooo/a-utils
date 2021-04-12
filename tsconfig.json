@@ -3,8 +3,10 @@
     "lib": [
       "DOM",
       "DOM.Iterable",
-      "es7",
-      "ES2017.object"
+      "ES5",
+      "ES6",
+      "ESNext",
+      "ScriptHost"
     ],
     "allowJs": false,
     "skipLibCheck": true,
@@ -22,6 +24,6 @@
     "removeComments": true,
     "sourceMap": true
   },
-  "exclude": ["./node_modules/**/*"],
+  "exclude": ["./node_modules/**/*", "./.yarn/**/*"],
   "include": ["./src/**/*"]
 }

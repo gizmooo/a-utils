@@ -5,4 +5,4 @@ export declare const hexToRgb: (hex: string) => {
     g: number;
     b: number;
 } | null;
-export declare function base64ToArrayBuffer(base64: string): ArrayBuffer;
+export declare function base64ToArrayBuffer(base64: string): ArrayBufferLike;
