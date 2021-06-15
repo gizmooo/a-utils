@@ -1,6 +1,6 @@
 {
   "name": "a-utils",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Utilities for rc websites",
   "author": "Anton Ustinov",
   "license": "ISC",
@@ -28,6 +28,6 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "typescript": "^4.2.4"
+    "typescript": "^4.3.2"
   }
 }
