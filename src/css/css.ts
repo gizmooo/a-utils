@@ -1,16 +1,20 @@
+type Prop = keyof Omit<CSSStyleDeclaration,
+  'length' | 'parentRule' | 'getPropertyPriority' | 'getPropertyValue' | 'item' | 'removeProperty' | 'setProperty' | '[Symbol.iterator]' | number>;
+
 // Возвращает значение CSS элемента
-export function getCSS(element: HTMLElement, property: string) {
-  return window.getComputedStyle(element, null).getPropertyValue(property);
+export function getCSS(element: HTMLElement, property: Prop) {
+  const prop: any = property;
+  return window.getComputedStyle(element, null).getPropertyValue(prop);
 }
 
 
 // // Modernizr
 const domPrefixes = ['moz', 'o', 'ms', 'webkit'];
 
-type Prop = keyof Omit<CSSStyleDeclaration, 'length' | 'parentRule' | 'getPropertyPriority' | 'getPropertyValue' | 'item' | 'removeProperty' | 'setProperty'>;
 
 
-export function prefixedCSSValue(prop: Prop, value: string) {
+export function prefixedCSSValue(property: Prop, value: string): boolean | string {
+  const prop: any = property;
   let result: string | boolean = false;
   const elem = document.createElement('div');
   const style = elem.style;
@@ -22,14 +26,10 @@ export function prefixedCSSValue(prop: Prop, value: string) {
     result = style[prop];
 
     while (i-- && !result) {
-      style[prop] = '-' + domPrefixes[i] + '-' + value;
+      style[prop] = `-${domPrefixes[i]}-${value}`;
       result = style[prop];
     }
   }
 
-  if (result === '') {
-    result = false;
-  }
-
-  return result;
+  return result === '' || typeof result === 'function' ? false : result;
 }
