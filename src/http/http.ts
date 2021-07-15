@@ -23,6 +23,7 @@ type Options<U extends 'blob' | 'text' | 'json' | undefined> = {
   data?: Data;
   method?: Method;
   headers?: HeadersCustom;
+  credentials?: 'include' | 'same-origin' | 'omit';
 }
 
 
@@ -49,7 +50,8 @@ export function http <T>(options: Options<'blob' | 'text' | 'json' | undefined>)
     cache: 'no-cache',
     headers: new Headers({
       ...options.headers
-    })
+    }),
+    credentials: options.credentials
     // redirect: 'follow',
     // referrer: 'no-referrer',
     // signal

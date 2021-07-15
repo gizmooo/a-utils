@@ -9,6 +9,7 @@ declare type Options<U extends 'blob' | 'text' | 'json' | undefined> = {
     data?: Data;
     method?: Method;
     headers?: HeadersCustom;
+    credentials?: 'include' | 'same-origin' | 'omit';
 };
 export declare function http(options: Options<'blob'>): Promise<Blob>;
 export declare function http(options: Options<'text'>): Promise<string>;

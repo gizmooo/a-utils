@@ -7,7 +7,8 @@ export function http(options) {
         body: null,
         mode: 'cors',
         cache: 'no-cache',
-        headers: new Headers(Object.assign({}, options.headers))
+        headers: new Headers(Object.assign({}, options.headers)),
+        credentials: options.credentials
     };
     if (options.data) {
         settings.method = 'POST';
