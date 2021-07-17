@@ -1,14 +1,13 @@
 declare type Data = FormData | string | null;
 declare type Method = 'POST' | 'GET' | 'PATCH' | 'DELETE';
-declare type HeadersCustom = {
-    [key: string]: string;
-} | Headers;
 declare type Options<U extends 'blob' | 'text' | 'json' | undefined> = {
     type?: U;
     action: string;
-    data?: Data;
+    data?: Data | Object;
     method?: Method;
-    headers?: HeadersCustom;
+    headers?: {
+        [key: string]: string;
+    };
     credentials?: 'include' | 'same-origin' | 'omit';
 };
 export declare function http(options: Options<'blob'>): Promise<Blob>;

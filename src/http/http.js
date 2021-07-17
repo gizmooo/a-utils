@@ -7,12 +7,18 @@ export function http(options) {
         body: null,
         mode: 'cors',
         cache: 'no-cache',
-        headers: new Headers(Object.assign({}, options.headers)),
+        headers: new Headers(Object.assign({ 'X-Requested-With': 'XMLHttpRequest' }, options.headers)),
         credentials: options.credentials
     };
     if (options.data) {
         settings.method = 'POST';
-        settings.body = options.data;
+        if (typeof options.data === 'object') {
+            settings.body = JSON.stringify(options.data);
+            settings.headers.append('Content-Type', 'application/json');
+        }
+        else {
+            settings.body = options.data;
+        }
     }
     if (options.method)
         settings.method = options.method;
@@ -33,6 +39,7 @@ export function http(options) {
         });
     }
     else {
+        settings.headers.append('Accept', 'application/json');
         return jsonFetch(options.action, settings)
             .then(response => {
             if (!response.ok)
