@@ -12,5 +12,5 @@ declare type Options<U extends 'blob' | 'text' | 'json' | undefined> = {
 };
 export declare function http(options: Options<'blob'>): Promise<Blob>;
 export declare function http(options: Options<'text'>): Promise<string>;
-export declare function http<T>(options: Options<'json' | undefined>): Promise<T>;
+export declare function http<T, E = any>(options: Options<'json' | undefined>): Promise<T>;
 export {};

@@ -35,9 +35,9 @@ const jsonFetch = <B>(...args: any): Promise<TypedResponseJson<B>> => {
 
 export function http(options: Options<'blob'>): Promise<Blob>;
 export function http(options: Options<'text'>): Promise<string>;
-export function http<T>(options: Options<'json' | undefined>): Promise<T>;
+export function http<T, E = any>(options: Options<'json' | undefined>): Promise<T>;
 
-export function http <T>(options: Options<'blob' | 'text' | 'json' | undefined>) {
+export function http <T, E = any>(options: Options<'blob' | 'text' | 'json' | undefined>) {
   // const controller = new AbortController();
   // const signal = controller.signal;
 
@@ -86,7 +86,16 @@ export function http <T>(options: Options<'blob' | 'text' | 'json' | undefined>)
     settings.headers.append('Accept', 'application/json');
     return jsonFetch<T>(options.action, settings)
       .then(response => {
-        if (!response.ok) throw response;
+        if (!response.ok) {
+          if (response.status < 500) {
+            throw {
+              status: response.status,
+              response: response.json<E>()
+            }
+          } else {
+            throw response;
+          }
+        }
         return response.json<T>();
       })
   }
