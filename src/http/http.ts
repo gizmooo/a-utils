@@ -59,7 +59,7 @@ export function http <T, E = any>(options: Options<'blob' | 'text' | 'json' | un
   if (options.data) {
     settings.method = 'POST';
 
-    if (typeof options.data === 'object') {
+    if (typeof options.data === 'object' && !(options.data instanceof FormData)) {
       settings.body = JSON.stringify(options.data);
       settings.headers.append('Content-Type', 'application/json');
     } else {

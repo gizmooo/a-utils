@@ -12,7 +12,7 @@ export function http(options) {
     };
     if (options.data) {
         settings.method = 'POST';
-        if (typeof options.data === 'object') {
+        if (typeof options.data === 'object' && !(options.data instanceof FormData)) {
             settings.body = JSON.stringify(options.data);
             settings.headers.append('Content-Type', 'application/json');
         }
