@@ -42,17 +42,8 @@ export function http(options) {
         settings.headers.append('Accept', 'application/json');
         return jsonFetch(options.action, settings)
             .then(response => {
-            if (!response.ok) {
-                if (response.status < 500) {
-                    throw {
-                        status: response.status,
-                        response: response.json()
-                    };
-                }
-                else {
-                    throw response;
-                }
-            }
+            if (!response.ok)
+                throw response;
             return response.json();
         });
     }

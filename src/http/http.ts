@@ -86,16 +86,7 @@ export function http <T, E = any>(options: Options<'blob' | 'text' | 'json' | un
     settings.headers.append('Accept', 'application/json');
     return jsonFetch<T>(options.action, settings)
       .then(response => {
-        if (!response.ok) {
-          if (response.status < 500) {
-            throw {
-              status: response.status,
-              response: response.json<E>()
-            }
-          } else {
-            throw response;
-          }
-        }
+        if (!response.ok) throw response;
         return response.json<T>();
       })
   }
