@@ -17,6 +17,8 @@ export * from './http/http';
 export * from './http/mapObjectToParamsString';
 export * from './http/queryParse';
 
+export * from './move/move';
+
 export * from './number/formatDate';
 export * from './number/number';
 
