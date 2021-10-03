@@ -9,7 +9,7 @@ export declare class CanvasRenderer {
     private _height;
     private readonly _canvas;
     private readonly _context;
-    constructor();
+    constructor(canvas?: HTMLCanvasElement);
     set size({ width, height }: Rect);
     get context(): CanvasRenderingContext2D;
     get canvas(): HTMLCanvasElement;

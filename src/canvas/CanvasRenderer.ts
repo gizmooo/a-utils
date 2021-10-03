@@ -12,10 +12,10 @@ export class CanvasRenderer {
   private readonly _canvas: HTMLCanvasElement;
   private readonly _context: CanvasRenderingContext2D;
 
-  constructor() {
+  constructor(canvas = document.createElement('canvas')) {
     this._width = 1;
     this._height = 1;
-    this._canvas = document.createElement('canvas')
+    this._canvas = canvas;
 
     this._canvas.style.cssText = `
       width: 100%;
