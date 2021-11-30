@@ -73,13 +73,19 @@ export function http <T, E = any>(options: Options<'blob' | 'text' | 'json' | un
   if (options.type === 'blob') {
     return fetch(options.action, settings)
       .then(response => {
-        if (!response.ok) new Error(response.statusText);
+        if (!response.ok) {
+          console.log('blob', response)
+          new Error(response.statusText);
+        }
         return response.blob();
       })
   } else if (options.type === 'text') {
     return fetch(options.action, settings)
       .then(response => {
-        if (!response.ok) new Error(response.statusText);
+        if (!response.ok) {
+          console.log('text', response)
+          new Error(response.statusText);
+        }
         return response.text();
       })
   } else {
@@ -87,7 +93,7 @@ export function http <T, E = any>(options: Options<'blob' | 'text' | 'json' | un
     return jsonFetch<T>(options.action, settings)
       .then(response => {
         if (!response.ok) {
-          console.log(response)
+          console.log('json', response)
           new Error(response.statusText);
         }
         return response.json<T>();

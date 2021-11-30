@@ -25,16 +25,20 @@ export function http(options) {
     if (options.type === 'blob') {
         return fetch(options.action, settings)
             .then(response => {
-            if (!response.ok)
+            if (!response.ok) {
+                console.log('blob', response);
                 new Error(response.statusText);
+            }
             return response.blob();
         });
     }
     else if (options.type === 'text') {
         return fetch(options.action, settings)
             .then(response => {
-            if (!response.ok)
+            if (!response.ok) {
+                console.log('text', response);
                 new Error(response.statusText);
+            }
             return response.text();
         });
     }
@@ -43,7 +47,7 @@ export function http(options) {
         return jsonFetch(options.action, settings)
             .then(response => {
             if (!response.ok) {
-                console.log(response);
+                console.log('json', response);
                 new Error(response.statusText);
             }
             return response.json();
