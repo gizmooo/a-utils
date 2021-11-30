@@ -25,20 +25,16 @@ export function http(options) {
     if (options.type === 'blob') {
         return fetch(options.action, settings)
             .then(response => {
-            if (!response.ok) {
-                console.log('blob', response);
-                new Error(response.statusText);
-            }
+            if (!response.ok)
+                throw response;
             return response.blob();
         });
     }
     else if (options.type === 'text') {
         return fetch(options.action, settings)
             .then(response => {
-            if (!response.ok) {
-                console.log('text', response);
-                new Error(response.statusText);
-            }
+            if (!response.ok)
+                throw response;
             return response.text();
         });
     }
@@ -46,10 +42,8 @@ export function http(options) {
         settings.headers.append('Accept', 'application/json');
         return jsonFetch(options.action, settings)
             .then(response => {
-            if (!response.ok) {
-                console.log('json', response);
-                new Error(response.statusText);
-            }
+            if (!response.ok)
+                throw response;
             return response.json();
         });
     }
