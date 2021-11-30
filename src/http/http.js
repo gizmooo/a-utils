@@ -26,7 +26,7 @@ export function http(options) {
         return fetch(options.action, settings)
             .then(response => {
             if (!response.ok)
-                throw response;
+                new Error(response.statusText);
             return response.blob();
         });
     }
@@ -34,7 +34,7 @@ export function http(options) {
         return fetch(options.action, settings)
             .then(response => {
             if (!response.ok)
-                throw response;
+                new Error(response.statusText);
             return response.text();
         });
     }
@@ -42,8 +42,10 @@ export function http(options) {
         settings.headers.append('Accept', 'application/json');
         return jsonFetch(options.action, settings)
             .then(response => {
-            if (!response.ok)
-                throw response;
+            if (!response.ok) {
+                console.log(response);
+                new Error(response.statusText);
+            }
             return response.json();
         });
     }

@@ -73,20 +73,23 @@ export function http <T, E = any>(options: Options<'blob' | 'text' | 'json' | un
   if (options.type === 'blob') {
     return fetch(options.action, settings)
       .then(response => {
-        if (!response.ok) throw response;
+        if (!response.ok) new Error(response.statusText);
         return response.blob();
       })
   } else if (options.type === 'text') {
     return fetch(options.action, settings)
       .then(response => {
-        if (!response.ok) throw response;
+        if (!response.ok) new Error(response.statusText);
         return response.text();
       })
   } else {
     settings.headers.append('Accept', 'application/json');
     return jsonFetch<T>(options.action, settings)
       .then(response => {
-        if (!response.ok) throw response;
+        if (!response.ok) {
+          console.log(response)
+          new Error(response.statusText);
+        }
         return response.json<T>();
       })
   }
