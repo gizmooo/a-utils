@@ -1,7 +1,6 @@
 import { isTouch } from '../test/test';
 import { EventEmitter } from '../EventEmitter';
 import { Performance } from '../performance/Performance';
-const RESISTANCE = 0.05;
 export class MoveEvent {
     constructor(x = 0, y = 0, vw = 1, vh = 1) {
         this._x = x;
@@ -30,7 +29,7 @@ export class MoveEvent {
 }
 const maximize = (num) => Math.max(-0.5, Math.min(0.5, num));
 export class MoveClass extends EventEmitter {
-    constructor(performance = new Performance()) {
+    constructor(performance = new Performance(), resistance = 0.05) {
         super();
         this._vw = 0;
         this._vh = 0;
@@ -39,6 +38,7 @@ export class MoveClass extends EventEmitter {
         this._aniX = 0;
         this._aniY = 0;
         this._performance = performance;
+        this._resistance = resistance;
         this.onMove = (e) => this._onMove(e);
         this.onResize = () => this._onResize();
         this.onUpdate = (shift) => this._onUpdate(shift);
@@ -54,8 +54,8 @@ export class MoveClass extends EventEmitter {
         this._vh = window.innerHeight;
     }
     _onUpdate(shift) {
-        const nx = (this._newX - this._aniX) * RESISTANCE * shift;
-        const ny = (this._newY - this._aniY) * RESISTANCE * shift;
+        const nx = (this._newX - this._aniX) * this._resistance * shift;
+        const ny = (this._newY - this._aniY) * this._resistance * shift;
         this._aniX += nx;
         this._aniY += ny;
         this._aniX = maximize(this._aniX);

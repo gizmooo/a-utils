@@ -4,8 +4,6 @@ import {Performance} from '../performance/Performance';
 
 export type MoveHandler = (e: MoveEvent) => void;
 
-const RESISTANCE = 0.05;
-
 
 export class MoveEvent {
   private readonly _x: number;
@@ -52,12 +50,13 @@ export class MoveClass extends EventEmitter<MoveEvent, MoveHandler>{
   private _aniY: number;
 
   private readonly _performance: Performance;
+  private readonly _resistance: number;
 
   private readonly onMove: (e: MouseEvent) => void;
   private readonly onResize: () => void;
   private readonly onUpdate: (shift: number) => void;
 
-  constructor(performance = new Performance()) {
+  constructor(performance = new Performance(), resistance = 0.05) {
     super();
 
     this._vw = 0;
@@ -69,6 +68,7 @@ export class MoveClass extends EventEmitter<MoveEvent, MoveHandler>{
     this._aniY = 0;
 
     this._performance = performance;
+    this._resistance = resistance;
 
     this.onMove = (e) => this._onMove(e);
     this.onResize = () => this._onResize();
@@ -89,8 +89,8 @@ export class MoveClass extends EventEmitter<MoveEvent, MoveHandler>{
   }
 
   private _onUpdate(shift: number) {
-    const nx = (this._newX - this._aniX) * RESISTANCE * shift;
-    const ny = (this._newY - this._aniY) * RESISTANCE * shift;
+    const nx = (this._newX - this._aniX) * this._resistance * shift;
+    const ny = (this._newY - this._aniY) * this._resistance * shift;
 
     this._aniX += nx;
     this._aniY += ny;

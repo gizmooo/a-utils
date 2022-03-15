@@ -22,10 +22,11 @@ export declare class MoveClass extends EventEmitter<MoveEvent, MoveHandler> {
     private _aniX;
     private _aniY;
     private readonly _performance;
+    private readonly _resistance;
     private readonly onMove;
     private readonly onResize;
     private readonly onUpdate;
-    constructor(performance?: Performance);
+    constructor(performance?: Performance, resistance?: number);
     private _onMove;
     private _onResize;
     private _onUpdate;
