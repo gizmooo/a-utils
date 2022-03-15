@@ -1,6 +1,5 @@
 export function getCSS(element, property) {
-    const prop = property;
-    return window.getComputedStyle(element, null).getPropertyValue(prop);
+    return window.getComputedStyle(element, null).getPropertyValue(property);
 }
 const domPrefixes = ['moz', 'o', 'ms', 'webkit'];
 export function prefixedCSSValue(property, value) {

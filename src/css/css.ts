@@ -1,10 +1,6 @@
-type Prop = keyof Omit<CSSStyleDeclaration,
-  'length' | 'parentRule' | 'getPropertyPriority' | 'getPropertyValue' | 'item' | 'removeProperty' | 'setProperty' | '[Symbol.iterator]' | number>;
-
 // Возвращает значение CSS элемента
-export function getCSS(element: HTMLElement, property: Prop) {
-  const prop: any = property;
-  return window.getComputedStyle(element, null).getPropertyValue(prop);
+export function getCSS(element: HTMLElement, property: string) {
+  return window.getComputedStyle(element, null).getPropertyValue(property);
 }
 
 
@@ -13,7 +9,7 @@ const domPrefixes = ['moz', 'o', 'ms', 'webkit'];
 
 
 
-export function prefixedCSSValue(property: Prop, value: string): boolean | string {
+export function prefixedCSSValue(property: string, value: string): boolean | string {
   const prop: any = property;
   let result: string | boolean = false;
   const elem = document.createElement('div');
