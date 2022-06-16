@@ -1,5 +1,5 @@
 const jsonFetch = (...args) => {
-    return fetch.apply(window, args);
+    return fetch.apply(window || global, args);
 };
 export function http(options) {
     const settings = {

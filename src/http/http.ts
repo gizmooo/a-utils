@@ -29,7 +29,7 @@ interface TypedResponseJson<T = any> extends Response {
   json<P = T>(): Promise<P>
 }
 const jsonFetch = <B>(...args: any): Promise<TypedResponseJson<B>> => {
-  return fetch.apply(window, args);
+  return fetch.apply(window || global, args);
 };
 
 

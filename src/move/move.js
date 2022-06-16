@@ -39,6 +39,8 @@ export class MoveClass extends EventEmitter {
         this._aniY = 0;
         this._performance = performance;
         this._resistance = resistance;
+        if (!window)
+            throw 'Используй только в браузере. Не для SSR';
         this.onMove = (e) => this._onMove(e);
         this.onResize = () => this._onResize();
         this.onUpdate = (shift) => this._onUpdate(shift);
