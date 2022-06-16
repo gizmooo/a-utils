@@ -7,5 +7,5 @@ export declare type CookieOptions = {
     'secure'?: boolean;
     'samesite'?: 'strict' | 'lax';
 };
-export declare const setCookie: (name: string, value: string, options?: CookieOptions | undefined) => void;
+export declare const setCookie: (name: string, value: string, options?: CookieOptions) => void;
 export declare const deleteCookie: (name: string) => void;
