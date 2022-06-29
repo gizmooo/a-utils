@@ -80,6 +80,7 @@ export class MoveClass extends EventEmitter {
         document.documentElement.removeEventListener('mousemove', this.onMove);
         window.removeEventListener('resize', this.onResize);
         this._performance.removeListener(this.onUpdate);
+        this._isDisabled = true;
     }
     enable() {
         if (!window)
@@ -90,6 +91,7 @@ export class MoveClass extends EventEmitter {
         document.documentElement.addEventListener('mousemove', this.onMove);
         window.addEventListener('resize', this.onResize);
         this._performance.addListener(this.onUpdate);
+        this._isDisabled = false;
     }
 }
 //# sourceMappingURL=move.js.map

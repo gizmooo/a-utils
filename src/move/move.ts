@@ -121,6 +121,7 @@ export class MoveClass extends EventEmitter<MoveEvent, MoveHandler>{
     window.removeEventListener('resize', this.onResize);
 
     this._performance.removeListener(this.onUpdate);
+    this._isDisabled = true;
   }
   public enable() {
     if (!window) throw 'Используй только в браузере или в useEffect.';
@@ -131,5 +132,6 @@ export class MoveClass extends EventEmitter<MoveEvent, MoveHandler>{
     window.addEventListener('resize', this.onResize);
 
     this._performance.addListener(this.onUpdate);
+    this._isDisabled = false;
   }
 }
