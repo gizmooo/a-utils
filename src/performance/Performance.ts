@@ -13,7 +13,7 @@ export class Performance extends EventEmitter<number, PerformanceHandler>{
   constructor(fps = 60) {
     super();
 
-    this._isDisabled = false;
+    this._isDisabled = true;
     this._defaultFPS = 1 / fps * 1000;
     this._previousPerformanceTime = 0;
     this._raf = -1;

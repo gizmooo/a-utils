@@ -31,6 +31,7 @@ const maximize = (num) => Math.max(-0.5, Math.min(0.5, num));
 export class MoveClass extends EventEmitter {
     constructor(performance = new Performance(), resistance = 0.05) {
         super();
+        this._isDisabled = true;
         this._vw = 0;
         this._vh = 0;
         this._newX = 0;
@@ -71,20 +72,24 @@ export class MoveClass extends EventEmitter {
     get performance() {
         return this._performance;
     }
+    disable() {
+        if (!window)
+            throw 'Используй только в браузере или в useEffect.';
+        if (this._isDisabled)
+            return;
+        document.documentElement.removeEventListener('mousemove', this.onMove);
+        window.removeEventListener('resize', this.onResize);
+        this._performance.removeListener(this.onUpdate);
+    }
     enable() {
         if (!window)
             throw 'Используй только в браузере или в useEffect.';
+        if (!this._isDisabled)
+            return;
         this._onResize();
         document.documentElement.addEventListener('mousemove', this.onMove);
         window.addEventListener('resize', this.onResize);
         this._performance.addListener(this.onUpdate);
-    }
-    disable() {
-        if (!window)
-            throw 'Используй только в браузере или в useEffect.';
-        document.documentElement.removeEventListener('mousemove', this.onMove);
-        window.removeEventListener('resize', this.onResize);
-        this._performance.removeListener(this.onUpdate);
     }
 }
 //# sourceMappingURL=move.js.map

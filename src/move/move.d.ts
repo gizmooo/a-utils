@@ -15,6 +15,7 @@ export declare class MoveEvent {
     get winCenterY(): number;
 }
 export declare class MoveClass extends EventEmitter<MoveEvent, MoveHandler> {
+    private _isDisabled;
     private _vw;
     private _vh;
     private _newX;
@@ -33,6 +34,6 @@ export declare class MoveClass extends EventEmitter<MoveEvent, MoveHandler> {
     get x(): number;
     get y(): number;
     get performance(): Performance;
-    enable(): void;
     disable(): void;
+    enable(): void;
 }

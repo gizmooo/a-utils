@@ -41,6 +41,7 @@ const maximize = (num: number): number => Math.max(-0.5, Math.min(0.5, num));
 
 
 export class MoveClass extends EventEmitter<MoveEvent, MoveHandler>{
+  private _isDisabled: boolean;
   private _vw: number;
   private _vh: number;
 
@@ -59,6 +60,7 @@ export class MoveClass extends EventEmitter<MoveEvent, MoveHandler>{
   constructor(performance = new Performance(), resistance = 0.05) {
     super();
 
+    this._isDisabled = true;
     this._vw = 0;
     this._vh = 0;
 
@@ -111,21 +113,23 @@ export class MoveClass extends EventEmitter<MoveEvent, MoveHandler>{
     return this._performance;
   }
 
+  public disable() {
+    if (!window) throw 'Используй только в браузере или в useEffect.';
+
+    if (this._isDisabled) return;
+    document.documentElement.removeEventListener('mousemove', this.onMove);
+    window.removeEventListener('resize', this.onResize);
+
+    this._performance.removeListener(this.onUpdate);
+  }
   public enable() {
     if (!window) throw 'Используй только в браузере или в useEffect.';
 
+    if (!this._isDisabled) return;
     this._onResize();
     document.documentElement.addEventListener('mousemove', this.onMove);
     window.addEventListener('resize', this.onResize);
 
     this._performance.addListener(this.onUpdate);
-  }
-  public disable() {
-    if (!window) throw 'Используй только в браузере или в useEffect.';
-
-    document.documentElement.removeEventListener('mousemove', this.onMove);
-    window.removeEventListener('resize', this.onResize);
-
-    this._performance.removeListener(this.onUpdate);
   }
 }
