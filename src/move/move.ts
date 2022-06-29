@@ -77,7 +77,7 @@ export class MoveClass extends EventEmitter<MoveEvent, MoveHandler>{
     this.onUpdate = (shift) => this._onUpdate(shift);
 
 
-    if (!isTouch()) this.enable();
+    if (window && !isTouch()) this.enable();
   }
 
   private _onMove(e: MouseEvent) {

@@ -7,7 +7,8 @@ export class Performance extends EventEmitter {
         this._previousPerformanceTime = 0;
         this._raf = -1;
         this.onAnimate = () => this._onAnimate();
-        this.enable();
+        if (window)
+            this.enable();
     }
     removeListener(handler) {
         const emitter = super.removeListener(handler);
