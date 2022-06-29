@@ -39,8 +39,6 @@ export class MoveClass extends EventEmitter {
         this._aniY = 0;
         this._performance = performance;
         this._resistance = resistance;
-        if (!window)
-            throw 'Используй только в браузере. Не для SSR';
         this.onMove = (e) => this._onMove(e);
         this.onResize = () => this._onResize();
         this.onUpdate = (shift) => this._onUpdate(shift);
@@ -71,12 +69,16 @@ export class MoveClass extends EventEmitter {
         return this._aniY;
     }
     enable() {
+        if (!window)
+            throw 'Используй только в браузере. Не для SSR';
         this._onResize();
         document.documentElement.addEventListener('mousemove', this.onMove);
         window.addEventListener('resize', this.onResize);
         this._performance.addListener(this.onUpdate);
     }
     disable() {
+        if (!window)
+            throw 'Используй только в браузере. Не для SSR';
         document.documentElement.removeEventListener('mousemove', this.onMove);
         window.removeEventListener('resize', this.onResize);
         this._performance.removeListener(this.onUpdate);
