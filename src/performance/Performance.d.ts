@@ -7,6 +7,7 @@ export declare class Performance extends EventEmitter<number, PerformanceHandler
     private _raf;
     private readonly onAnimate;
     constructor(fps?: number);
+    removeListener(handler: PerformanceHandler): this;
     private _onAnimate;
     get isDisabled(): boolean;
     disable(): void;

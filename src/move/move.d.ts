@@ -32,6 +32,7 @@ export declare class MoveClass extends EventEmitter<MoveEvent, MoveHandler> {
     private _onUpdate;
     get x(): number;
     get y(): number;
+    get performance(): Performance;
     enable(): void;
     disable(): void;
 }

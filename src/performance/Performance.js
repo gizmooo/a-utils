@@ -9,6 +9,12 @@ export class Performance extends EventEmitter {
         this.onAnimate = () => this._onAnimate();
         this.enable();
     }
+    removeListener(handler) {
+        const emitter = super.removeListener(handler);
+        if (!this._handlers.length)
+            this.disable();
+        return emitter;
+    }
     _onAnimate() {
         const now = performance.now();
         const performanceShift = (now - this._previousPerformanceTime) / this._defaultFPS;
@@ -20,12 +26,16 @@ export class Performance extends EventEmitter {
         return this._isDisabled;
     }
     disable() {
+        if (!window)
+            throw 'Используй только в браузере или в useEffect.';
         if (this._isDisabled)
             return;
         cancelAnimationFrame(this._raf);
         this._isDisabled = true;
     }
     enable() {
+        if (!window)
+            throw 'Используй только в браузере или в useEffect.';
         if (!this._isDisabled)
             return;
         this._raf = requestAnimationFrame(this.onAnimate);

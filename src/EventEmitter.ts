@@ -1,7 +1,7 @@
 export type EventEmitterHandler<D> = (data: D) => void;
 
 export class EventEmitter<T, H extends EventEmitterHandler<T> = EventEmitterHandler<T>> {
-  private _handlers: H[];
+  protected _handlers: H[];
   constructor() {
     this._handlers = [];
   }

@@ -68,9 +68,12 @@ export class MoveClass extends EventEmitter {
     get y() {
         return this._aniY;
     }
+    get performance() {
+        return this._performance;
+    }
     enable() {
         if (!window)
-            throw 'Используй только в браузере. Не для SSR';
+            throw 'Используй только в браузере или в useEffect.';
         this._onResize();
         document.documentElement.addEventListener('mousemove', this.onMove);
         window.addEventListener('resize', this.onResize);
@@ -78,7 +81,7 @@ export class MoveClass extends EventEmitter {
     }
     disable() {
         if (!window)
-            throw 'Используй только в браузере. Не для SSR';
+            throw 'Используй только в браузере или в useEffect.';
         document.documentElement.removeEventListener('mousemove', this.onMove);
         window.removeEventListener('resize', this.onResize);
         this._performance.removeListener(this.onUpdate);
