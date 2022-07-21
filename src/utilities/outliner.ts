@@ -2,12 +2,17 @@ import {EventEmitter} from '../EventEmitter';
 
 export class OutLiner extends EventEmitter<boolean> {
   private _isSetted: boolean;
-  private readonly _style: HTMLStyleElement;
+  private _style?: HTMLStyleElement;
 
   constructor() {
     super();
 
     this._isSetted = false;
+
+    if (window) this.init();
+  }
+
+  public init() {
     this._style = document.createElement('style');
     document.head.appendChild(this._style);
 
@@ -16,11 +21,12 @@ export class OutLiner extends EventEmitter<boolean> {
     document.addEventListener('touchstart', () => this._set());
     document.addEventListener('keydown', (e) => this._remove(e));
   }
+
   private _set() {
     if (this._isSetted) return;
 
     document.documentElement.classList.remove('keyboard');
-    this._style.innerHTML = '* {outline:none}';
+    this._style!.innerHTML = '* {outline:none}';
     this._isSetted = true;
 
     this.dispatch(true);
@@ -30,7 +36,7 @@ export class OutLiner extends EventEmitter<boolean> {
     if (e && e.keyCode !== 9) return;
 
     document.documentElement.classList.add('keyboard');
-    this._style.innerHTML = '';
+    this._style!.innerHTML = '';
     this._isSetted = false;
 
     this.dispatch(false);

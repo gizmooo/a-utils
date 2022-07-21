@@ -3,6 +3,10 @@ export class OutLiner extends EventEmitter {
     constructor() {
         super();
         this._isSetted = false;
+        if (window)
+            this.init();
+    }
+    init() {
         this._style = document.createElement('style');
         document.head.appendChild(this._style);
         document.addEventListener('mousedown', () => this._set());
