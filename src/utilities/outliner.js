@@ -7,6 +7,8 @@ export class OutLiner extends EventEmitter {
             this.init();
     }
     init() {
+        if (!window)
+            throw 'Используй только в браузере или в useEffect.';
         this._style = document.createElement('style');
         document.head.appendChild(this._style);
         document.addEventListener('mousedown', () => this._set());
