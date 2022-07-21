@@ -1,8 +1,5 @@
 import {EventEmitter} from '../EventEmitter';
 
-const HTML = document.documentElement;
-
-
 export class OutLiner extends EventEmitter<boolean> {
   private _isSetted: boolean;
   private readonly _style: HTMLStyleElement;
@@ -22,7 +19,7 @@ export class OutLiner extends EventEmitter<boolean> {
   private _set() {
     if (this._isSetted) return;
 
-    HTML.classList.remove('keyboard');
+    document.documentElement.classList.remove('keyboard');
     this._style.innerHTML = '* {outline:none}';
     this._isSetted = true;
 
@@ -32,7 +29,7 @@ export class OutLiner extends EventEmitter<boolean> {
     if (!this._isSetted) return;
     if (e && e.keyCode !== 9) return;
 
-    HTML.classList.add('keyboard');
+    document.documentElement.classList.add('keyboard');
     this._style.innerHTML = '';
     this._isSetted = false;
 

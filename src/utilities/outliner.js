@@ -1,5 +1,4 @@
 import { EventEmitter } from '../EventEmitter';
-const HTML = document.documentElement;
 export class OutLiner extends EventEmitter {
     constructor() {
         super();
@@ -13,7 +12,7 @@ export class OutLiner extends EventEmitter {
     _set() {
         if (this._isSetted)
             return;
-        HTML.classList.remove('keyboard');
+        document.documentElement.classList.remove('keyboard');
         this._style.innerHTML = '* {outline:none}';
         this._isSetted = true;
         this.dispatch(true);
@@ -23,7 +22,7 @@ export class OutLiner extends EventEmitter {
             return;
         if (e && e.keyCode !== 9)
             return;
-        HTML.classList.add('keyboard');
+        document.documentElement.classList.add('keyboard');
         this._style.innerHTML = '';
         this._isSetted = false;
         this.dispatch(false);
