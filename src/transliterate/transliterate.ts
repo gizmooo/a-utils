@@ -1,4 +1,4 @@
-const converter = {
+const converter: {[key: string]: string;} = {
   'а': 'a',    'б': 'b',    'в': 'v',    'г': 'g',    'д': 'd',
   'е': 'e',    'ё': 'e',    'ж': 'zh',   'з': 'z',    'и': 'i',
   'й': 'y',    'к': 'k',    'л': 'l',    'м': 'm',    'н': 'n',
@@ -20,10 +20,11 @@ export const transliterate = (text: string) => {
   let result = '';
 
   for (let i = 0; i < text.length; i++) {
-    if (converter[text[i]] == undefined) {
-      result += text[i];
+    const liter = text[i];
+    if (liter in converter) {
+      result += converter[liter];
     } else {
-      result += converter[text[i]];
+      result += liter;
     }
   }
 

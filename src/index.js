@@ -16,6 +16,7 @@ export * from './performance/Performance';
 export * from './share/share';
 export * from './sort/sort';
 export * from './test/test';
+export * from './transliterate/transliterate';
 export * from './utilities/addHint';
 export * from './utilities/outliner';
 export * from './utilities/debounce';
