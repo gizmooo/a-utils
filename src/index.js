@@ -13,7 +13,7 @@ export * from './move/move';
 export * from './number/formatDate';
 export * from './number/number';
 export * from './performance/Performance';
-export * from './react-utils';
+export * from './react-utils/index';
 export * from './share/share';
 export * from './sort/sort';
 export * from './test/test';
