@@ -24,6 +24,8 @@ export * from './number/number';
 
 export * from './performance/Performance';
 
+export * from './react-utils';
+
 export * from './share/share';
 
 export * from './sort/sort';
