@@ -6,5 +6,4 @@ export declare const Share: {
     mr: (purl: string, pTitle?: string, pImg?: string, text?: string) => void;
     wa: (purl: string, pTitle?: string, pImg?: string, text?: string) => void;
     tg: (purl: string, pTitle?: string, pImg?: string, text?: string) => void;
-    popup: (url: string) => void;
 };

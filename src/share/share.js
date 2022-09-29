@@ -1,3 +1,6 @@
+const setPopup = (url) => {
+    window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
+};
 export const Share = {
     vk: (purl, pTitle, pImg, text) => {
         let url = 'https://vkontakte.ru/share.php?';
@@ -9,7 +12,7 @@ export const Share = {
         if (pImg)
             url += '&image=' + encodeURIComponent(pImg);
         url += '&noparse=true';
-        Share.popup(url);
+        setPopup(url);
     },
     ok: (purl, pTitle, pImg, text) => {
         let url = 'https://connect.ok.ru/offer?';
@@ -18,12 +21,12 @@ export const Share = {
             url += '&title=' + encodeURIComponent(pTitle);
         if (pImg)
             url += '&imageUrl=' + encodeURIComponent(pImg);
-        Share.popup(url);
+        setPopup(url);
     },
     fb: (purl, pTitle, pImg, text) => {
         let url = 'https://www.facebook.com/sharer.php?s=100';
         url += '&u=' + encodeURIComponent(purl);
-        Share.popup(url);
+        setPopup(url);
     },
     tw: (purl, pTitle, pImg, text) => {
         let url = 'https://twitter.com/share?';
@@ -31,7 +34,7 @@ export const Share = {
         url += '&counturl=' + encodeURIComponent(purl);
         if (pTitle)
             url += '&text=' + encodeURIComponent(pTitle);
-        Share.popup(url);
+        setPopup(url);
     },
     mr: (purl, pTitle, pImg, text) => {
         let url = 'https://connect.mail.ru/share?';
@@ -42,20 +45,17 @@ export const Share = {
             url += '&description=' + encodeURIComponent(text);
         if (pImg)
             url += '&imageurl=' + encodeURIComponent(pImg);
-        Share.popup(url);
+        setPopup(url);
     },
     wa: (purl, pTitle, pImg, text) => {
         let url = `https://api.whatsapp.com/send?text=${encodeURIComponent(purl)}`;
-        Share.popup(url);
+        setPopup(url);
     },
     tg: (purl, pTitle, pImg, text) => {
         let url = `https://t.me/share/url?url=${encodeURIComponent(purl)}`;
         if (pImg)
             url += `&text=${encodeURIComponent(pImg)}`;
-        Share.popup(url);
-    },
-    popup: (url) => {
-        window.open(url, '', 'toolbar=0,status=0,width=626,height=436');
+        setPopup(url);
     }
 };
 //# sourceMappingURL=share.js.map
