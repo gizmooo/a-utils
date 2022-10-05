@@ -24,6 +24,8 @@ export * from './number/number';
 
 export * from './performance/Performance';
 
+export * from './polyfills/toCamelCase'
+
 export * from './react-utils';
 
 export * from './share/share';
