@@ -4,7 +4,6 @@
   "description": "Utilities for RC websites",
   "author": "Anton Ustinov",
   "license": "ISC",
-  "type": "module",
   "main": "./build/cjs/index.js",
   "module": "./build/es/index.js",
   "types": "./build/types/index.d.ts",
