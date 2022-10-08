@@ -5,16 +5,9 @@
   "author": "Anton Ustinov",
   "license": "ISC",
   "type": "module",
-  "main": "build/cjs/index.js",
-  "module": "build/es/index.js",
-  "types": "build/cjs/index.d.ts",
-  "exports": {
-    ".": {
-      "import": "./build/es/index.js",
-      "require": "./build/cjs/index.js",
-      "default": "./build/es/index.js"
-    }
-  } ,
+  "main": "./build/cjs/index.js",
+  "module": "./build/es/index.js",
+  "types": "./build/cjs/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gizmooo/a-utils.git"
