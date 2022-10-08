@@ -20,8 +20,7 @@
     "url": "git+https://github.com/gizmooo/a-utils.git"
   },
   "files": [
-    "build/es/index.js",
-    "build/cjs/index.js",
+    "build/",
     "package.json",
     "README.md"
   ],
