@@ -1,6 +1,6 @@
 {
   "name": "a-utils",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Utilities for RC websites",
   "author": "Anton Ustinov",
   "license": "ISC",
@@ -20,8 +20,9 @@
     "url": "git+https://github.com/gizmooo/a-utils.git"
   },
   "files": [
-    "src/",
-    "package.json",
+    "./build/es/",
+    "./build/cjs/",
+    "./package.json",
     "README.md"
   ],
   "keywords": [
