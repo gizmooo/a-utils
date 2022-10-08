@@ -17,7 +17,6 @@
     "isolatedModules": false,
     "noEmit": false,
     "target": "es2017",
-    "declaration": true,
     "removeComments": true,
     "sourceMap": true
   },

@@ -7,7 +7,14 @@
   "type": "module",
   "main": "./build/cjs/index.js",
   "module": "./build/es/index.js",
-  "types": "./build/cjs/index.d.ts",
+  "types": "./build/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./build/es/index.js",
+      "require": "./build/cjs/index.js",
+      "default": "./build/es/index.js"
+    }
+  } ,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gizmooo/a-utils.git"
@@ -28,7 +35,8 @@
   },
   "homepage": "https://github.com/gizmooo/a-utils",
   "scripts": {
-    "build": "yarn run build:esnext && yarn run build:cjs",
+    "build": "yarn build:declaration && yarn build:esnext && yarn build:cjs",
+    "build:declaration": "tsc --declaration --emitDeclarationOnly --outDir build/types",
     "build:esnext": "tsc --outDir build/es",
     "build:cjs": "tsc --module commonjs --target es5 --outDir build/cjs"
   },
