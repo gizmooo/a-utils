@@ -1,6 +1,6 @@
 import { EventEmitter } from '../EventEmitter';
 import { Performance } from '../performance/Performance';
-export declare type MoveHandler = (e: MoveEvent) => void;
+export type MoveHandler = (e: MoveEvent) => void;
 export declare class MoveEvent {
     private readonly _x;
     private readonly _y;

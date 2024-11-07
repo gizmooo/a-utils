@@ -1,5 +1,5 @@
 export declare const getCookie: (name: string) => string | undefined;
-export declare type CookieOptions = {
+export type CookieOptions = {
     'expires'?: string | number | Date;
     'max-age'?: string | number;
     'path'?: string;

@@ -1,6 +1,6 @@
 import { EventEmitter } from '../EventEmitter';
-export declare type HistoryHandler = ([...args]: any) => any;
-export declare type HistoryOptions = {
+export type HistoryHandler = ([...args]: any) => any;
+export type HistoryOptions = {
     state: any;
     title: string;
     href?: string | null;

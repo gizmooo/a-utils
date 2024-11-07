@@ -40,14 +40,14 @@ var OutLiner = (function (_super) {
         if (this._isSetted)
             return;
         document.documentElement.classList.remove('keyboard');
-        this._style.innerHTML = '* {outline:none}';
+        this._style.innerHTML = '* {outline-color: transparent}';
         this._isSetted = true;
         this.dispatch(true);
     };
     OutLiner.prototype._remove = function (e) {
         if (!this._isSetted)
             return;
-        if (e && e.keyCode !== 9)
+        if (e && e.key !== 'Tab')
             return;
         document.documentElement.classList.add('keyboard');
         this._style.innerHTML = '';

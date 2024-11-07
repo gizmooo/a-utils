@@ -1,6 +1,6 @@
-declare type Data = FormData | string | null;
-declare type Method = 'POST' | 'GET' | 'PATCH' | 'DELETE';
-declare type Options<U extends 'blob' | 'text' | 'json' | undefined> = {
+type Data = FormData | string | null;
+type Method = 'POST' | 'GET' | 'PATCH' | 'DELETE';
+type Options<U extends 'blob' | 'text' | 'json' | undefined> = {
     type?: U;
     action: string;
     data?: Data | Object;

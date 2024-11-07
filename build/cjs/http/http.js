@@ -17,7 +17,7 @@ var jsonFetch = function () {
     for (var _i = 0; _i < arguments.length; _i++) {
         args[_i] = arguments[_i];
     }
-    return fetch.apply(window || global, args);
+    return fetch.apply(window, args);
 };
 function http(options) {
     var settings = {

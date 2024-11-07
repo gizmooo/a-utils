@@ -1,4 +1,4 @@
-declare type Rect = {
+type Rect = {
     width: number;
     height: number;
     x?: number;
