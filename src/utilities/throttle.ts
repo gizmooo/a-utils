@@ -1,28 +1,14 @@
-export function throttle<T>(func: ((...args: T[]) => any), wait: number): ((...args: T[]) => any) {
-  let isThrottled = false,
-    savedArgs: T[] | null,
-    savedThis: any;
+export const throttle = <T extends unknown[], R extends unknown>(callback: (...args: T) => R, waitTime: number) => {
+  let isWaiting = false;
 
-  function wrapper(this: any, ...args: T[]) {
+  return (...args: T) => {
+    if (isWaiting) return;
+    isWaiting = true;
 
-    if (isThrottled) {
-      savedArgs = args;
-      savedThis = this;
-      return;
-    }
+    setTimeout(() => {
+      isWaiting = false;
+    }, waitTime);
 
-    func.apply(this, args);
-
-    isThrottled = true;
-
-    setTimeout(function() {
-      isThrottled = false;
-      if (savedArgs) {
-        wrapper.apply(savedThis, savedArgs);
-        savedArgs = savedThis = null;
-      }
-    }, wait);
+    return callback(...args);
   }
-
-  return wrapper;
 }

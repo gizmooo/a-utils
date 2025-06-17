@@ -1,1 +1,1 @@
-export declare function throttle<T>(func: ((...args: T[]) => any), wait: number): ((...args: T[]) => any);
+export declare const throttle: <T extends unknown[], R extends unknown>(callback: (...args: T) => R, waitTime: number) => (...args: T) => R | undefined;

@@ -1,21 +1,13 @@
-export function throttle(func, wait) {
-    let isThrottled = false, savedArgs, savedThis;
-    function wrapper(...args) {
-        if (isThrottled) {
-            savedArgs = args;
-            savedThis = this;
+export const throttle = (callback, waitTime) => {
+    let isWaiting = false;
+    return (...args) => {
+        if (isWaiting)
             return;
-        }
-        func.apply(this, args);
-        isThrottled = true;
-        setTimeout(function () {
-            isThrottled = false;
-            if (savedArgs) {
-                wrapper.apply(savedThis, savedArgs);
-                savedArgs = savedThis = null;
-            }
-        }, wait);
-    }
-    return wrapper;
-}
+        isWaiting = true;
+        setTimeout(() => {
+            isWaiting = false;
+        }, waitTime);
+        return callback(...args);
+    };
+};
 //# sourceMappingURL=throttle.js.map
